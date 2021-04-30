@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CSCB20</title>
+    <link rel = "stylesheet" href = "/static/index.css">
+    <link rel = "shortcut icon" type = "image/png" href = "/static/img/uoft.png">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <link rel = "stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css">
+    <script src = "/static/index.js" ></script>
+  </head>
+  <body>
+    <div class = "header" id = "header">
+      <a href = "#home">HOME</a>
+      <a href = "#announcements">ANNOUNCEMENTS</a>
+      <a href = "#lectures">LECTURES</a>
+      <a href = "#material">LECTURE MATERIAL</a>
+      <a href = "#labs">LABS</a>
+      <a href = "#assignments">ASSIGNMENTS</a>
+      <a href = "#grades">VIEW GRADES</a>
+      <a href = "#piazza">PIAZZA</a>
+      <a href = "https://markus.utsc.utoronto.ca/cscb20w19/" target = "_blank">MARKUS</a>
+      <a href = "#calendar">CALENDAR</a>
+      <a href = "#syllabus">SYLLABUS</a>
+      {% if not instructor %}<a href = "#feedback">FEEDBACK</a>{% else %}<a href = "#view-feedback">VIEW FEEDBACK</a>{% endif %}
+      {% if instructor %}<a href = "#remark">REMARK REQUEST</a>{% endif %}
+      <a href = "/logout">LOGOUT</a>
+      <a href = "#header" id = "menu">MENU</a>
+    </div>
+    <div class = "container">
+      <div class = "welcome" id = "home">
+        <img src = "/static/img/home.png">
+        <div class = "welcome-text">
+          <span class = "line1">WELCOME TO CSCB20</span>
+          <span class = "line2">Introduction to Databases and Web Applications</span>
+        </div>
+        <a id = "learn" href = "#team">Learn more about our team</a>
+      </div>
+
+      <div class = "content">
+        <div class = "hr" ><hr></div>
+        <div class = "team" id = "team">
+          <h2>Course Team</h2>
+          <div class = "person">
+            <img src = "/static/img/person.png">
+            <div class = "person-overlay">
+              <div>
+                <span class = "info">
+                  <img src = "/static/img/name.png">Name: Abbas Attarwala
+                </span>
+                <span class = "info">
+                  <img src = "/static/img/email.png">Email: abbas.attarwala@utoronto.ca
+                </span>
+                <span class = "info">
+                  <img src = "/static/img/office.png">Office: IC349
+                </span>
+                <span class = "info">
+                  <img src = "/static/img/hours.png">Office Hours: Office Hours 1
+                </span>
+              </div>
+            </div>
+            Click or hover for more info
+          </div>
+          <div class = "person">
+            <img src = "/static/img/person.png">
+            <div class = "person-overlay">
+              <div>
+                <span class = "info">
+                  <img src = "/static/img/name.png">Name: Suhailah Rahman
+                </span>
+                <span class = "info">
+                  <img src = "/static/img/email.png">Email: suhailah.rahman@mail.utoronto.ca
+                </span>
+                <span class = "info">
+                  <img src = "/static/img/office.png">Office: IC400A
+                </span>
+                <span class = "info">
+                  <img src = "/static/img/hours.png">Office Hours: Office Hours 2
+                </span>
+              </div>
+            </div>
+            Click or hover for more info
+          </div>
+          <div class = "person">
+            <img src = "/static/img/person.png">
+            <div class = "person-overlay">
+              <div>
+                <span class = "info">
+                  <img src = "/static/img/name.png">Name: Kevin Zhang
+                </span>
+                <span class = "info">
+                  <img src = "/static/img/email.png">Email: mstr.zhang@mail.utoronto.ca
+                </span>
+                <span class = "info">
+                  <img src = "/static/img/office.png">Office: IC400A
+                </span>
+                <span class = "info">
+                  <img src = "/static/img/hours.png">Office Hours: Office Hours 3
+                </span>
+              </div>
+            </div>
+            Click or hover for more info
+          </div>
+          <div class = "person">
+            <img src = "/static/img/person.png">
+            <div class = "person-overlay">
+              <div>
+                <span class = "info">
+                  <img src = "/static/img/name.png">Name: Dharmik Shah
+                </span>
+                <span class = "info">
+                  <img src = "/static/img/email.png">Email: dharmik.shah@mail.utoronto.ca
+                </span>
+                <span class = "info">
+                  <img src = "/static/img/office.png">Office: IC400A
+                </span>
+                <span class = "info">
+                  <img src = "/static/img/hours.png">Office Hours: Office Hours 4
+                </span>
+              </div>
+            </div>
+            Click or hover for more info
+          </div>
+          <div class = "person">
+            <img src = "/static/img/person.png">
+            <div class = "person-overlay">
+              <div>
+                <span class = "info">
+                  <img src = "/static/img/name.png">Name: Xia Zhongyang
+                </span>
+                <span class = "info">
+                  <img src = "/static/img/email.png">Email: zhongyang.xia@mail.utoronto.ca
+                </span>
+                <span class = "info">
+                  <img src = "/static/img/office.png">Office: IC400A
+                </span>
+                <span class = "info">
+                  <img src = "/static/img/hours.png">Office Hours: Office Hours 5
+                </span>
+              </div>
+            </div>
+            Click or hover for more info
+          </div>
+          <div class = "person">
+            <img src = "/static/img/person.png">
+            <div class = "person-overlay">
+              <div>
+                <span class = "info">
+                  <img src = "/static/img/name.png">Name: Brian Lam
+                </span>
+                <span class = "info">
+                  <img src = "/static/img/email.png">Email: brianandrew.lam@mail.utoronto.ca
+                </span>
+                <span class = "info">
+                  <img src = "/static/img/office.png">Office: IC400A
+                </span>
+                <span class = "info">
+                  <img src = "/static/img/hours.png">Office Hours: Office Hours 6
+                </span>
+              </div>
+            </div>
+            Click or hover for more info
+          </div>
+        </div>
+
+        <div class = "hr" ><hr></div>
+
+        <h2>Course Description</h2>
+        <p>A practical introduction to databases and Web app development. Databases: terminology and applications; creating, querying and updating databases; the entity-relationship model for database design. Web documents and applications: static and interactive documents; Web servers and dynamic server-generated content; Web application development and interface with databases.</p>
+        <p>Prerequisite: Some experience with programming in an imperative language such as Python, Java or C.</p>
+        <p>Exclusion: This course may not be taken after/or concurrently with any C or D-level CSC course.</p>
+
+        <div class = "hr" ><hr></div>
+
+        <footer>
+          <a class = "image" href = "http://web.cs.toronto.edu" target = "_blank"><img src = "/static/img/logo.png"></a>
+
+          <div class = "campus-info">
+            <a href = "https://www.utsc.utoronto.ca" target = "_blank"><h6>University of Toronto Scarborough</h6></a>
+            <p>1265 Military Trail Toronto, Ontario M1C 1A4 Canada<br> Ph: (416) 287 8872</p>
+          </div>
+          <div class = "campus-info">
+            <a href = "https://www.utm.utoronto.ca" target = "_blank"><h6>University of Toronto Mississauga</h6></a>
+            <p>3359 Mississauga Road North Mississauga, Ontario L5L 1C6 Canada<br> Ph: (905) 569 4455</p>
+          </div>
+          <div class = "campus-info">
+            <a href = "https://www.utoronto.ca" target = "_blank"><h6>University of Toronto St. George</h6></a>
+            <p>27 King's College Circle Toronto, Ontario M5S 1A1 Canada<br> Ph: (416) 978 2011</p>
+          </div>
+          <div class = "authors">
+            <p>Site designed by<br>JingYi Wu and<br>Benedict Leung</p>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    <div class = "panel" id = "announcements">
+      <div class = "choose-message">
+        Please choose an item on the left
+      </div>
+      <div class = "vertical-menu">
+        <input type = "radio" name = "announcements" id = "a1" checked>
+        <div class = "panel-content">
+          <div class = "acontainer">
+            <div class = "atitle">
+              <div>
+                <img src = "/static/img/name.png">
+                <h2>Software installation for using SQL on your computer<p>Abbas Attarwala</p></h2>
+              </div>
+            </div>
+            <div class = "acontent">
+              <p>Hello folks,</p>
+              <p>I recommend downloading and installing the following software on your computer. We will be using SQLite for the first few weeks of the term. Do not worry if you are not familiar with these yet, I will be using this in lecture on 21st January. For now, all I am asking is you to download and install these on your computer.</p>
+              <p>1. Download and install Sqlite</p>
+              <a href = "https://sqlite.org/download.html" target = "_blank">https://sqlite.org/download.html</a>
+              <p>If you are on a mac computer, the following guide will be useful: </p>
+              <p>2. Download and install DB browser for SQL lite</p>
+              <a href = "https://sqlitebrowser.org" target = "_blank">https://sqlitebrowser.org</a>
+              <p>Thanks and I look forward to seeing you on 21st January.</p>
+              <p>Thanks,</p>
+              <p>Abbas</p>
+            </div>
+          </div>
+        </div>
+        <label class = "title" for = "a1">Software installation for using SQL on your computer</label>
+
+        <input type = "radio" name = "announcements" id = "a2">
+        <div class = "panel-content">
+          <div class = "acontainer">
+            <div class = "atitle">
+              <div>
+                <img src = "/static/img/name.png">
+                <h2>Quiz 1 details<p>Abbas Attarwala</p></h2>
+              </div>
+            </div>
+            <div class = "acontent">
+              <p>Hello folks,</p>
+              <p>Here are some details to keep in mind when you start working on your quiz 1 tomorrow (25th January).</p>
+              <p>1. Login to Quercus, and click on the Quizzes tab.</p>
+              <p>2. You will have exactly 90 minutes to complete this quiz once started. The quiz has a total of 4 questions.</p>
+              <p>3. In none of the four questions you are asked to write any SQL queries. You are only asked to write relational algebra.</p>
+              <p>4. You can refer to the course lecture notes.</p>
+              <p>5. It is important that you work on this quiz alone and not collaborate with any of your peers.</p>
+              <p>6. The quiz will be available until 11:59pm on 25th January, however, you will have exactly 90 minutes to complete the quiz once you begin. Make sure that you only begin the quiz when you have set aside 90 minutes for yourself.</p>
+              <p>7. You can write your solutions on a piece of paper or type it out, however, make sure to take a picture of your solution and upload this.</p>
+              <p>8. Do not post any questions related to the quiz on Piazza tomorrow. </p>
+              <p>Good luck!</p>
+              <p>Abbas</p>
+            </div>
+          </div>
+        </div>
+        <label class = "title" for = "a2">Quiz 1 details</label>
+
+        <input type = "radio" name = "announcements" id = "a3">
+        <div class = "panel-content">
+          <div class = "acontainer">
+            <div class = "atitle">
+              <div>
+                <img src = "/static/img/name.png">
+                <h2>Assignment 1 is posted.<p>Abbas Attarwala</p></h2>
+              </div>
+            </div>
+            <div class = "acontent">
+              <p>Hello everyone,</p>
+              <p>Assignment 1 is posted. You will be working in teams of two for assignment 1. You can signup for groups on Piazza. Piazza has a feature for team search, that I recommend that you make use of, if you do not have someone to work with.</p>
+              <p>The Piazza signup link is:</p>
+              <a href = "https://piazza.com/mail.utoronto.ca/spring2019/cscb20" target = "_blank">piazza.com/mail.utoronto.ca/spring2019/cscb20</a>
+              <p>Thanks,</p>
+              <p>Abbas</p>
+            </div>
+          </div>
+        </div>
+        <label class = "title" for = "a3">Assignment 1 is posted.</label>
+
+        <input type = "radio" name = "announcements" id = "a4">
+        <div class = "panel-content">
+          <div class = "acontainer">
+            <div class = "atitle">
+              <div>
+                <img src = "/static/img/name.png">
+                <h2>Appendix of your midterm exam is provided to you<p>Abbas Attarwala</p></h2>
+              </div>
+            </div>
+            <div class = "acontent">
+              <p>Hello everyone,</p>
+              <p>Please make sure to go under the midterm exam module, and I have provided to you the actual appendix of your midterm exam that you will see on  Monday. You will find in the appendix various components of SQLite queries provided to you with example, so it becomes easy for you to use it during the exam. Also, make sure to go through the appendix very carefully over the weekend, and I am sure you will find it very useful and to your advantage when you come to write the exam.</p>
+              <p>Thanks and I look forward to seeing you all on Monday.</p>
+              <p>Thanks,</p>
+              <p>Abbas</p>
+            </div>
+          </div>
+        </div>
+        <label class = "title" for = "a4">Appendix of your midterm exam is provided to you</label>
+
+        <input type = "radio" name = "announcements" id = "a5">
+        <div class = "panel-content">
+          <div class = "acontainer">
+            <div class = "atitle">
+              <div>
+                <img src = "/static/img/name.png">
+                <h2>Assignment 2 is now available<p>Abbas Attarwala</p></h2>
+              </div>
+            </div>
+            <div class = "acontent">
+              <p>Hello everyone,</p>
+              <p>Assignment 2 is now available. Due date is 13th March @ 11:59 pm. Please note that you are required to work in teams of 2 for this assignment. Please stop by my office hours on Friday from 3 pm to 5 pm, if you like to discuss your assignment 2 with me for some ideas etc.</p>
+              <p>Thanks,</p>
+              <p>Abbas</p>
+            </div>
+          </div>
+        </div>
+        <label class = "title" for = "a5">Assignment 2 is now available</label>
+      </div>
+    </div>
+
+    <div class = "panel" id = "lectures">
+      <div class = "choose-message">
+        Please choose an item on the left
+      </div>
+      <div class = "vertical-menu">
+        <input type = "radio" name = "lectures" id = "lec1">
+        <div class = "panel-content">
+          <a class = "download" href = "/static/pdf/lecture.pdf" download>Click to download</a>
+          <object type = "application/pdf" data = "/static/pdf/lecture.pdf"></object>
+        </div>
+        <label class = "title" for = "lec1">Introduction, Databases background</label>
+
+        <input type = "radio" name = "lectures" id = "lec2">
+        <div class = "panel-content">
+          <a class = "download" href = "/static/pdf/lecture.pdf" download>Click to download</a>
+          <object type = "application/pdf" data = "/static/pdf/lecture.pdf"></object>
+        </div>
+        <label class = "title" for = "lec2">Schema Diagrams, Relational Algebra</label>
+
+        <input type = "radio" name = "lectures" id = "lec3">
+        <div class = "panel-content">
+          <a class = "download" href = "/static/pdf/lecture.pdf" download>Click to download</a>
+          <object type = "application/pdf" data = "/static/pdf/lecture.pdf"></object>
+        </div>
+        <label class = "title" for = "lec3">SQL and MySQL</label>
+
+        <input type = "radio" name = "lectures" id = "lec4">
+        <div class = "panel-content">
+          <a class = "download" href = "/static/pdf/lecture.pdf" download>Click to download</a>
+          <object type = "application/pdf" data = "/static/pdf/lecture.pdf"></object>
+        </div>
+        <label class = "title" for = "lec4">MySQL Queries, Creating and Editing Tables</label>
+
+        <input type = "radio" name = "lectures" id = "lec5">
+        <div class = "panel-content">
+          <a class = "download" href = "/static/pdf/lecture.pdf" download>Click to download</a>
+          <object type = "application/pdf" data = "/static/pdf/lecture.pdf"></object>
+        </div>
+        <label class = "title" for = "lec5">MySQL Outer Joins, Views, NULL, string functions, HTML</label>
+
+        <input type = "radio" name = "lectures" id = "lec6">
+        <div class = "panel-content">
+          <a class = "download" href = "/static/pdf/lecture.pdf" download>Click to download</a>
+          <object type = "application/pdf" data = "/static/pdf/lecture.pdf"></object>
+        </div>
+        <label class = "title" for = "lec6">HTML, CSS</label>
+
+        <input type = "radio" name = "lectures" id = "lec7">
+        <div class = "panel-content">
+          <a class = "download" href = "/static/pdf/lecture.pdf" download>Click to download</a>
+          <object type = "application/pdf" data = "/static/pdf/lecture.pdf"></object>
+        </div>
+        <label class = "title" for = "lec7">PHP</label>
+
+        <input type = "radio" name = "lectures" id = "lec8">
+        <div class = "panel-content">
+          <a class = "download" href = "/static/pdf/lecture.pdf" download>Click to download</a>
+          <object type = "application/pdf" data = "/static/pdf/lecture.pdf"></object>
+        </div>
+        <label class = "title" for = "lec8">PHP and SQL</label>
+
+        <input type = "radio" name = "lectures" id = "lec9">
+        <div class = "panel-content">
+          <a class = "download" href = "/static/pdf/lecture.pdf" download>Click to download</a>
+          <object type = "application/pdf" data = "/static/pdf/lecture.pdf"></object>
+        </div>
+        <label class = "title" for = "lec9">JavaScript and jQuery</label>
+
+        <input type = "radio" name = "lectures" id = "lec10">
+        <div class = "panel-content">
+          <a class = "download" href = "/static/pdf/lecture.pdf" download>Click to download</a>
+          <object type = "application/pdf" data = "/static/pdf/lecture.pdf"></object>
+        </div>
+        <label class = "title" for = "lec10">jQuery, AJAX, JSON</label>
+
+        <input type = "radio" name = "lectures" id = "lec11">
+        <div class = "panel-content">
+          <a class = "download" href = "/static/pdf/lecture.pdf" download>Click to download</a>
+          <object type = "application/pdf" data = "/static/pdf/lecture.pdf"></object>
+        </div>
+        <label class = "title" for = "lec11">Last Year's final</label>
+
+      </div>
+    </div>
+
+    <div class = "panel" id = "material">
+      <div class = "choose-message">
+        Please choose an item on the left
+      </div>
+      <div class = "vertical-menu">
+        <input type = "radio" name = "material" id = "mac1">
+        <div class = "panel-content">
+          <a class = "download" href = "/static/pdf/material.pdf" download>Click to download</a>
+          <object type = "application/pdf" data = "/static/pdf/material.pdf"></object>
+        </div>
+        <label class = "title" for = "mac1">Week 1 Worksheet</label>
+
+        <input type = "radio" name = "material" id = "mac2">
+        <div class = "panel-content">
+          <a class = "download" href = "/static/pdf/material.pdf" download>Click to download</a>
+          <object type = "application/pdf" data = "/static/pdf/material.pdf"></object>
+        </div>
+        <label class = "title" for = "mac2">Week 1 Solution</label>
+
+        <input type = "radio" name = "material" id = "mac3">
+        <div class = "panel-content">
+          <a class = "download" href = "/static/pdf/material.pdf" download>Click to download</a>
+          <object type = "application/pdf" data = "/static/pdf/material.pdf"></object>
+        </div>
+        <label class = "title" for = "mac3">Week 3 Worksheet</label>
+
+        <input type = "radio" name = "material" id = "mac4">
+        <div class = "panel-content">
+          <a class = "download" href = "/static/pdf/material.pdf" download>Click to download</a>
+          <object type = "application/pdf" data = "/static/pdf/material.pdf"></object>
+        </div>
+        <label class = "title" for = "mac4">Week 3 Solution</label>
+      </div>
+    </div>
+
+    <div class = "panel" id = "grades">
+      <div class = "grade-item-title">
+        {% if instructor %}<div class = "username grade-content asc" id = "username">Username <img src = "/static/img/tableicon.png"></div>{% endif %}
+        <div class = "name grade-content asc" id = "name">Name <img src = "/static/img/tableicon.png"></div>
+        <div class = "date grade-content asc" id = "date">Due Date <img src = "/static/img/tableicon.png"> </div>
+        <div class = "score grade-content asc" id = "score">Score <img src = "/static/img/tableicon.png"></div>
+        <div class = "total grade-content asc" id = "total">Total <img src = "/static/img/tableicon.png"></div>
+        <div class = "type grade-content asc" id = "type">Type <img src = "/static/img/tableicon.png"></div>
+        <div class = "action grade-content" id = "action">Action</div>
+      </div>
+      <div class = "list-grade" id = "list-grade">
+        {% if grades %}
+          {% for grades in grades %}
+            <div class = "grade-item" id = "{{grades.id}}">
+              {% if instructor %}<div class = "username grade-content username{{grades.id}}" id = "username">{{grades.username}}</div>{% endif %}
+              <div class = "name grade-content name{{grades.id}}" id = "name">{{grades.name}}</div>
+              <div class = "date grade-content date{{grades.id}}" id = "date">{{grades.date}}</div>
+              <div class = "score grade-content score{{grades.id}}" id = "score">{{grades.score}}</div>
+              <div class = "total grade-content total{{grades.id}}" id = "total">{{grades.total}}</div>
+              <div class = "type grade-content type{{grades.id}}" id = "type">{{grades.type}}</div>
+              <div class = "action grade-content" id = "action">
+                {% if instructor %}
+                  <button class = "edit-button" type = "button" id = "{{grades.id}}">Edit</button>
+                  <button class = "delete-button" type = "button" id = "{{grades.id}}">Delete</button>
+                {% else %}
+                  <button class = "remark-button" type = "button" id = "{{grades.id}}">Remark Request</button>
+                {% endif %}
+              </div>
+            </div>
+          {% endfor %}
+        {% endif %}
+      </div>
+      {% if instructor %}
+        <div class = "update-database">
+          <button class = "save" type = "button" name = "button">Save Changes</button>
+          <button class = "add" type = "button" name = "button" id = "{% if total %}{{total + 1}}{% else %}1{% endif %}">Add Grade</button>
+          <button class = "cancel" type = "button" name = "button">Cancel</button>
+        </div>
+        <div class = "edit-panel">
+          <form class = "edit-form" id = "edit-form">
+            <input class = "edit-id" type = "text" name = "edit-id">
+            <label class = "label-username">Username:</label>
+            <select class = "edit-username" name = "edit-username" required>
+              <option value = "" id = "-">-</option>
+              {% if studentsInstructor %}
+                {% for students in studentsInstructor%}
+                  <option value = "{{students.username}}" id = "{{students.username}}">{{students.username}}</option>
+                {% endfor %}
+              {% endif %}
+            </select>
+            <label>Name:</label>
+            <input class = "edit-name" type = "text" name = "edit-name" required>
+            <label>Date:</label>
+            <input class = "edit-date" type = "text" name = "edit-date" readonly>
+            <label>Score:</label>
+            <input class = "edit-score" type = "text" name = "edit-score" pattern = "^\d+$" title = "Enter a valid number" required>
+            <label>Total:</label>
+            <input class = "edit-total" type = "text" name = "edit-total" pattern = "^\d+$" title = "Enter a valid number" required>
+            <label>Type:</label>
+            <input class = "edit-type" type = "text" name = "edit-type" required>
+            <div class = "button-menu">
+              <button type = "submit" class = "edit-submit" form = "edit-form">Edit</button>
+              <button type = "submit" class = "add-submit" form = "edit-form">Add</button>
+              <button type = "button" class = "edit-cancel">Cancel</button>
+            </div>
+          </form>
+        </div>
+        <div class = "loading-screen">
+          <img class = "load-gif" src = "/static/img/load.gif">
+          <img class = "done-png" src = "/static/img/done.png">
+        </div>
+      {% else %}
+        <div class = "remark-panel">
+          <form class = "remark-form">
+            <input class = "remark-username" type = "text" name = "remark-username" value = "{{session['username']}}" readonly>
+            <label>Name:</label>
+            <input class = "remark-name" type = "text" name = "remark-name" readonly>
+            <label>Comments:</label>
+            <textarea class = "comments" type = "text" name = "comments" rows = "8" required></textarea>
+            <div class = "button-menu">
+              <button type = "submit" name = "button" class = "remark-submit">Submit Remark Request</button>
+              <button type = "button" class = "remark-cancel">Cancel</button>
+            </div>
+          </form>
+        </div>
+      {% endif %}
+    </div>
+
+    <div class = "panel" id = "labs">
+      <div class = "choose-message">
+        Please choose an item on the left
+      </div>
+      <div class = "vertical-menu">
+        <input type = "radio" name = "labs" id = "lab1">
+        <div class = "panel-content">
+          <iframe src = "https://mstrzhang.github.io/cscb20/2019/01/07/week2.html" sandbox = "allow-scripts allow-same-origin"></iframe>
+        </div>
+        <label class = "title" for = "lab1">Week 2</label>
+
+        <input type = "radio" name = "labs" id = "lab2">
+        <div class = "panel-content">
+          <iframe src = "https://mstrzhang.github.io/cscb20/2019/01/16/week3.html" sandbox = "allow-scripts allow-same-origin"></iframe>
+        </div>
+        <label class = "title" for = "lab2">Week 3</label>
+
+        <input type = "radio" name = "labs" id = "lab3">
+        <div class = "panel-content">
+          <iframe src = "https://mstrzhang.github.io/cscb20/2019/01/27/week4.html" sandbox = "allow-scripts allow-same-origin"></iframe>
+        </div>
+        <label class = "title" for = "lab3">Week 4</label>
+
+        <input type = "radio" name = "labs" id = "lab4">
+        <div class = "panel-content">
+          <iframe src = "https://mstrzhang.github.io/cscb20/2019/02/03/week5.html" sandbox = "allow-scripts allow-same-origin"></iframe>
+        </div>
+        <label class = "title" for = "lab4">Week 5</label>
+
+        <input type = "radio" name = "labs" id = "lab5">
+        <div class = "panel-content">
+          <iframe src = "https://mstrzhang.github.io/cscb20/2019/02/10/week6.html" sandbox = "allow-scripts allow-same-origin"></iframe>
+        </div>
+        <label class = "title" for = "lab5">Week 6</label>
+
+        <input type = "radio" name = "labs" id = "lab6">
+        <div class = "panel-content">
+          <iframe src = "https://mstrzhang.github.io/cscb20/2019/02/24/week8.html" sandbox = "allow-scripts allow-same-origin"></iframe>
+        </div>
+        <label class = "title" for = "lab6">Week 8</label>
+      </div>
+    </div>
+
+    <div class = "panel" id = "assignments">
+      <div class = "choose-message">
+        Please choose an item on the left
+      </div>
+      <div class = "vertical-menu">
+        <input type = "radio" name = "assignments" id = "asgn1">
+        <div class = "panel-content">
+          <a class = "download" href = "/static/pdf/assignment.pdf" download>Click to download</a>
+          <object type = "application/pdf" data = "/static/pdf/assignment.pdf"></object>
+        </div>
+        <label class = "title" for = "asgn1">Assignment 1 due February 3rd</label>
+
+        <input type = "radio" name = "assignments" id = "asgn2">
+        <div class = "panel-content">
+          <a class = "download" href = "/static/pdf/assignment.pdf" download>Click to download</a>
+          <object type = "application/pdf" data = "/static/pdf/assignment.pdf"></object>
+        </div>
+        <label class = "title" for = "asgn2">Assignment 2 due March 13th</label>
+      </div>
+    </div>
+
+    <div class = "panel" id = "piazza">
+      <iframe src = "https://piazza.com"></iframe>
+    </div>
+
+    <div class = "panel" id = "calendar">
+    <iframe src = "https://calendar.google.com/calendar/embed?showTitle=0&amp;showTz=0&amp;height=600&amp;wkst=1&amp;bgcolor=%23ffffff&amp;src=en.canadian%23holiday%40group.v.calendar.google.com&amp;color=%23875509&amp;src=pb8pqvhah3a42otm1hq6iru54o%40group.calendar.google.com&amp;color=%232952A3&amp;ctz=America%2FToronto"></iframe>
+    </div>
+
+    <div class = "panel" id = "syllabus">
+      <a class = "download" href = "/static/pdf/syllabus.pdf" download>Click to download</a>
+      <object type = "application/pdf" data = "/static/pdf/syllabus.pdf"></object>
+    </div>
+
+    {% if not instructor %}
+      <div class = "panel" id = "feedback">
+        <form class = "feedback-form" id = "feedback-form">
+          <div class="feedback-content">
+            <h1>Feedback</h1>
+            <div class = "instructor">
+              <input class = "username" type = "text" name = "username" value = "{{session['username']}}" readonly>
+              <label class = "instructor-title">Instructor:</label>
+              <select name = "choose-instructor" class = "choose-instructor" required>
+                <option value = "">-</option>
+                {% for instructor in instructorList %}
+                <option value = "{{instructor.username}}">{{instructor.username}}</option>
+                {% endfor %}
+              </select>
+            </div>
+            <div class = "feed">
+              <textarea name = "feedback" id = "feed1" type = "text" rows = "5" required></textarea>
+              <label for = "feed1">What do you like about the instructor teaching?</label>
+            </div>
+            <div class = "feed">
+              <textarea name = "feedback" id = "feed2" type = "text" rows = "5" required></textarea>
+              <label for = "feed2">What do you recommend the instructor to do to improve their teaching?</label>
+            </div>
+            <div class = "feed">
+              <textarea name = "feedback" id = "feed3" type = "text" rows = "5" required></textarea>
+              <label for = "feed3">What do you like about the labs?</label>
+            </div>
+            <div class = "feed">
+              <textarea name = "feedback" id = "feed4" type = "text" rows = "5" required></textarea>
+              <label for = "feed4">What do you recommend the lab instructors to do to improve their lab teaching?</label>
+            </div>
+
+            <button type = "submit" class = "feedback-submit">Submit</button>
+          </div>
+        </form>
+      </div>
+    {% else %}
+      <div class = "panel" id = "view-feedback">
+        <div class = "feedback-item-title">
+          <div class = "username feedback-content asc" id = "username">Username<img src = "/static/img/tableicon.png"></div>
+          <div class = "feedback feedback-content" id = "feedback-content">Feedback</div>
+        </div>
+        <div class = "list-feedback" id = "list-feedback">
+          {% if feedback %}
+            {% for feedback in feedback %}
+              <div class = "feedback-item" id = "{{feedback.id}}">
+                <div class = "username feedback-content" id = username>{{feedback.username}}</div>
+                {% set answers = feedback.feedback.split('\x1f')%}
+                <div class = "feedback feedback-content">
+                  <h4 style = "margin-top: 0">What do you like about the instructor teaching?</h4>{{answers[0]}}<br>
+                  <h4>What do you recommend the instructor to do to improve their teaching?</h4>{{answers[1]}}<br>
+                  <h4>What do you like about the labs?</h4>{{answers[2]}}<br>
+                  <h4>What do you recommend the lab instructors to do to improve their lab teaching?</h4>{{answers[3]}}<br>
+                </div>
+              </div>
+            {% endfor %}
+          {% endif %}
+        </div>
+      </div>
+    {% endif %}
+
+    {% if instructor %}
+      <div class = "panel" id = "remark">
+        <div class = "remark-item-title">
+          <div class = "username remark-content asc" id = "username">Username<img src = "/static/img/tableicon.png"></div>
+          <div class = "name remark-content asc" id = "name">Name<img src = "/static/img/tableicon.png"></div>
+          <div class = "comments remark-content" id = "comments">Comments</div>
+        </div>
+        <div class = "list-remark" id = "list-remark">
+          {% if comments %}
+            {% for comment in comments %}
+              <div class = "remark-item" id = "{{comment.id}}">
+                <div class = "username remark-content" id = username>{{comment.username}}</div>
+                <div class = "name remark-content" id = "name">{{comment.name}}</div>
+                <div class = "comments remark-content" id = "comments">{{comment.comments}}</div>
+              </div>
+            {% endfor %}
+          {% endif %}
+        </div>
+      </div>
+    {% endif %}
+  </body>
+</html>
